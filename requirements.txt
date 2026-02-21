@@ -2,8 +2,5 @@ requests
 wikipedia
 moviepy
 pillow
-numpyrequests
-wikipedia
-moviepy
-pillow
 numpy
+pyttsx3
