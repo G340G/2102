@@ -1,8 +1,7 @@
 name: Generate ARG Video
 
 on:
-  repository_dispatch:
-    types: [generate_signal]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -19,6 +18,9 @@ jobs:
       - name: Install Dependencies
         run: pip install -r generator/requirements.txt
 
+      - name: Create output folder
+        run: mkdir -p output
+
       - name: Run Generator
         run: python generator/sephiroth_brain.py
 
@@ -27,5 +29,5 @@ jobs:
           git config user.name "bot"
           git config user.email "bot@github.com"
           git add .
-          git commit -m "New signal"
+          git commit -m "New signal" || echo "No changes"
           git push
