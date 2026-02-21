@@ -1,4 +1,4 @@
-name: Generate ARG Video
+name: Generate Signal
 
 on:
   workflow_dispatch:
@@ -6,26 +6,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
-
-      - name: Setup Python
-        uses: actions/setup-python@v4
+      - uses: actions/setup-python@v4
         with:
           python-version: 3.10
-
-      - name: Install Dependencies
-        run: pip install -r generator/requirements.txt
-
-      - name: Create output folder
-        run: mkdir -p output
-
-      - name: Run Generator
-        run: python generator/sephiroth_brain.py
-
-      - name: Commit Output
-        run: |
+      - run: pip install -r requirements.txt
+      - run: python generate.py
+      - run: |
           git config user.name "bot"
           git config user.email "bot@github.com"
           git add .
