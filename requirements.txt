@@ -1,6 +1,6 @@
+moviepy==1.0.3
+numpy
+pillow
 requests
 wikipedia
-moviepy
-pillow
-numpy
 pyttsx3
